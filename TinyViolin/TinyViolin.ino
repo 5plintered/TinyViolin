@@ -5,10 +5,11 @@
 #include <SD.h>
 #include <ArduinoSound.h>
 
+#define VOLUME 30
+#define FILE_NAME "WOAH.WAV"
 #define TPA64_ADDRESS       0x69 // Address of the TPA64 shifted right one bit for wire library
 #define THERMOMETER_ADDR  0x0e
 #define SENSOR_DATA_START   0x80
-#define VOLUME 30
 
 #define BUFFER_SIZE 3
 #define NUM_SENSORS 64
@@ -102,7 +103,7 @@ void InitialiseSD() {
   Serial.println("initialization done.");
 
   // create a SDWaveFile
-  waveFile = SDWaveFile("WOEISME.WAV");
+  waveFile = SDWaveFile(FILE_NAME);
 
   // check if the WaveFile is valid
   if (!waveFile) {
